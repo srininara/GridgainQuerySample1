@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="GridgainQuerySample1" default="runBasicTest" basedir="..">
+	<property file="build/build.properties" />
+	<path id="project.class.path">
+		<pathelement location="${classes.path}" />
+		<pathelement location="${resources.home}" />
+		<fileset dir="${gridgain.path}">
+			<include name="*.jar/" />
+		</fileset>
+		<fileset dir="${gridgain.lib.path}">
+			<include name="*.jar/" />
+		</fileset>
+		<fileset dir="${lib.path}">
+			<include name="*.jar/" />
+		</fileset>
+	</path>
+	<target name="runSimpleNode" description="Run a gridgain node">
+		<echo message="Starting a Node..."/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.node.starter}" classpathref="project.class.path"></java>
+	</target>
+	
+	<target name="runBasicTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="basicTest.txt"/>
+			<arg value="5000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+	
+	<target name="run5KWith2NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run5KWith2NodesTest.txt"/>
+			<arg value="5000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run5KWith3NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run5KWith3NodesTest.txt"/>
+			<arg value="5000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run5KWith4NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run5KWith4NodesTest.txt"/>
+			<arg value="5000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run8KWith2NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run8KWith2NodesTest.txt"/>
+			<arg value="8000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run8KWith3NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run8KWith3NodesTest.txt"/>
+			<arg value="8000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run8KWith4NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run8KWith4NodesTest.txt"/>
+			<arg value="8000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run12KWith2NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run12KWith2NodesTest.txt"/>
+			<arg value="12000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run12KWith3NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run12KWith3NodesTest.txt"/>
+			<arg value="12000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+
+	<target name="run12KWith4NodesTest" description="Run a Gridgain Population Query Test">
+		<echo message="Starting the Test..."/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<antcall target="runSimpleNode"></antcall>
+		<sleep seconds="20"/>
+		<java spawn="true" fork="true" jvm="${jvm.to.use.path}/bin/java" dir="${classes.path}" classname="${simple.test.class}" classpathref="project.class.path">
+			<arg value="run12KWith4NodesTest.txt"/>
+			<arg value="12000"/>
+		</java>
+		<echo message="Test Spawned..."/>
+	</target>
+	
+	<target name="run5KWithMultiNodesTest" description="Run a Gridgain Population Query Test">
+		<antcall target="run5KWith2NodesTest"></antcall>
+		<sleep minutes="2" seconds="50"/>
+		<antcall target="run5KWith3NodesTest"></antcall>
+		<sleep minutes="3" seconds="10"/>
+		<antcall target="run5KWith4NodesTest"></antcall>
+		<sleep minutes="3" seconds="30"/>
+	</target>	
+
+	<target name="run8KWithMultiNodesTest" description="Run a Gridgain Population Query Test">
+		<antcall target="run8KWith2NodesTest"></antcall>
+		<sleep minutes="3" seconds="50"/>
+		<antcall target="run8KWith3NodesTest"></antcall>
+		<sleep minutes="4" seconds="10"/>
+		<antcall target="run8KWith4NodesTest"></antcall>
+		<sleep minutes="4" seconds="30"/>
+	</target>	
+
+	<target name="run12KWithMultiNodesTest" description="Run a Gridgain Population Query Test">
+		<antcall target="run12KWith2NodesTest"></antcall>
+		<sleep minutes="5" seconds="20"/>
+		<antcall target="run12KWith3NodesTest"></antcall>
+		<sleep minutes="5" seconds="40"/>
+		<antcall target="run12KWith4NodesTest"></antcall>
+		<sleep minutes="6" seconds="0"/>
+	</target>
+	
+	<target name="all" description="run it all">
+		<antcall target="run5KWithMultiNodesTest"></antcall>
+		<antcall target="run8KWithMultiNodesTest"></antcall>
+		<antcall target="run12KWithMultiNodesTest"></antcall>		
+	</target>
+
+</project>
