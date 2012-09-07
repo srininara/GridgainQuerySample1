@@ -41,17 +41,6 @@ public class MyGridClient {
 		X.println(randNodeId.toString());
 		// Get client projection of grid partitioned cache.
 		GridClientData rmtCache = client.data("partitioned");
-		//GridClientPredicate<E1>
-//		client.
-//		
-//        GridCacheProjection<GridCacheAffinityKey<String>, Person> cache = cache(grid);
-//        GridCacheProjection<GridCacheAffinityKey<String>, Person> personCache =
-//                cache.projection(GridCacheAffinityKey.class, Person.class);
-//        Collection<Person> data = createData();
-//        for (Person person: data) {
-//        	personCache.put(person.key(),person);
-//        }
-
 		
 		Collection<Person> data = new GridFiller().createData(10);
 		Collection<String> keys = new ArrayList<String>();
