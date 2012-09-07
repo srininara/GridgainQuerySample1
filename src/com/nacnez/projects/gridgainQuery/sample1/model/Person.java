@@ -1,13 +1,13 @@
 package com.nacnez.projects.gridgainQuery.sample1.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.UUID;
 
 import org.gridgain.grid.cache.affinity.GridCacheAffinityKey;
 import org.gridgain.grid.cache.query.GridCacheQuerySqlField;
 
-public class Person {
+public class Person implements Serializable {
 
     @GridCacheQuerySqlField(unique = true)
 	private String uniqueId;
